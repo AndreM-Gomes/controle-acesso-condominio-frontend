@@ -1,0 +1,36 @@
+<div 
+    fxFlex="100" 
+    fxLayout="column" 
+    fxLayoutAlign="center center"
+    class="login-container">
+    <h1>Login</h1>
+    <form
+        fxFlex="100"
+        class="full"
+        fxLayout="column"
+        [formGroup]="loginForm">
+        <mat-form-field fxFlex="100">
+            <input
+                fxFlex="100" 
+                matInput
+                type="text"
+                formControlName="email"
+                placeholder="E-mail">
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+            <input 
+                fxFlex="100"
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Senha">
+        </mat-form-field>
+        <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="tryLogin()"
+            [disabled]="!loginForm.valid">
+            Entrar
+        </button>
+    </form>
+</div>
