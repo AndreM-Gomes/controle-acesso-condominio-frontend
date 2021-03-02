@@ -1,5 +1,36 @@
 .login-container{
     min-width: 28vw;
     height: 30vh;
-    margin: 35vh 36vw;
+    margin: 40vh 40vw;
+    background-color: #EFF1F3 ;
 }
+
+.login-background{
+    position: absolute;
+    width: 520px;
+    height: 542px;
+    background: #EFF1F3
+    
+}
+
+.title-login{
+    color: #223843;
+}
+
+.logo-login{
+    position: absolute;
+    top: 17.86%;
+    bottom: 71.86%;
+    font-size: 50px;
+}
+
+h2{
+    color: #223843;
+    margin-top: 20px;
+}
+
+.button-entrar{
+    background-color: #D77A61;
+    color: #EFF1F3;
+}
+
