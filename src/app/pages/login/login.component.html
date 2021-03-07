@@ -1,30 +1,55 @@
-<div fxLayout="column" fxLayoutAlign="center center" style="min-height: 100vh; background-color: #223843;">
+<div 
+    fxLayout="column" 
+    fxLayoutAlign="center center" 
+    style="height: 100vh; background-color: #223843;">
+    
+    <div 
+        fxLayout="column" 
+        fxLayoutAlign="center center" 
+        class="login-container mat-elevation-z3">
+        
+        <div 
+            class="title-login" 
+            fxLayout="column" 
+            fxLayoutAlign="center center"> 
+            
+            <span 
+                class="material-icons logo-login">
+                apartment
+            </span>
 
-    <div fxFlex="90" fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z5 login-background">
-
-        <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" class="login-container">
-            <div class="title-login" fxLayout="column" fxLayoutAlign="center center"> 
-                <span class="material-icons logo-login">
-                    apartment
-                </span>
-                
-            </div>
-            <h2>Controle de acesso</h2>
-            <h3>Login</h3>
-            <form fxFlex="100" class="full" fxLayout="column" [formGroup]="loginForm">
-                <mat-form-field appearance="fill">
-                    <mat-label>E-mail</mat-label>
-                    <input fxFlex="100" matInput type="text" formControlName="email" placeholder="user@email.com">
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Senha</mat-label>
-                    <input fxFlex="100" matInput type="password" formControlName="password" >
-                </mat-form-field>
-                <button mat-raised-button class="button-entrar" (click)="tryLogin()" [disabled]="!loginForm.valid">
-                    Entrar
-                </button>
-            </form>
         </div>
+        <h2>Controle de acesso</h2>
+        <h3>Login</h3>
+        <form 
+            fxFlex="100" 
+            class="full padding" 
+            fxLayout="column" 
+            [formGroup]="loginForm">
+            <mat-form-field appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input fxFlex="100" matInput type="text" formControlName="email" placeholder="user@email.com">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input fxFlex="100" matInput type="password" formControlName="password" >
+            </mat-form-field>
+            <button 
+                mat-raised-button 
+                class="button-entrar" 
+                (click)="tryLogin()" 
+                [disabled]="!loginForm.valid">
+                Entrar
+            </button>
+        </form>
+        <div>
+            <button mat-button>Esqueci a senha</button>
+        </div>
+        <button 
+            class="button-primeiro-acesso full" 
+            mat-raised-button 
+            color="primary">
+            Primeiro acesso
+        </button>
     </div>
-
 </div>

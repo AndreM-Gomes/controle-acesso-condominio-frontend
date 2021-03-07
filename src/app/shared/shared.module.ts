@@ -1,19 +1,33 @@
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MenuComponent } from '../pages/menu/menu.component';
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MenuComponent
+  ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatSelectModule
   ],
   exports: [
     CommonModule,
@@ -21,6 +35,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MenuComponent,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

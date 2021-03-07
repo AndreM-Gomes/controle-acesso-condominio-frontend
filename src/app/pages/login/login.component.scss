@@ -1,16 +1,14 @@
 .login-container{
-    min-width: 28vw;
-    height: 30vh;
-    margin: 40vh 40vw;
+    min-width: 600px;
+    min-height: 600px;
+    margin: 30vh 30vw;
+    padding: 10vh 0 0 0;
     background-color: #EFF1F3 ;
+    border-radius: 4px;
 }
 
-.login-background{
-    position: absolute;
-    width: 520px;
-    height: 542px;
-    background: #EFF1F3
-    
+.padding{
+    padding:0 5vw;
 }
 
 .title-login{
@@ -18,9 +16,6 @@
 }
 
 .logo-login{
-    position: absolute;
-    top: 17.86%;
-    bottom: 71.86%;
     font-size: 50px;
 }
 
@@ -30,7 +25,9 @@ h2{
 }
 
 .button-entrar{
-    background-color: #D77A61;
-    color: #EFF1F3;
 }
-
+.button-primeiro-acesso{
+    // background-color: #D77A61;
+    // color: #EFF1F3;
+    margin-top: 40px;
+}

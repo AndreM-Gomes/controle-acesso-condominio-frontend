@@ -1,5 +1,5 @@
-import { selectAuthInfo } from './../../state/login.selectors';
-import { tryLogin } from './../../state/login.actions';
+import { selectAuthInfo } from '../../state/login/login.selectors';
+import { tryLogin } from '../../state/login/login.actions';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthInfo } from 'src/app/api/model/auth-info';
@@ -29,6 +29,6 @@ export class LoginComponent implements OnInit {
 
   tryLogin(){
     this.store.dispatch(tryLogin(this.loginForm.value));
-    this.store.pipe(select(selectAuthInfo)).subscribe(console.log)
+    
   }
 }

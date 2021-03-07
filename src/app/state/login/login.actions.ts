@@ -1,11 +1,15 @@
-import { AuthState } from './auth-state';
-import { AuthInfo } from './../api/model/auth-info';
+import { AuthInfo } from '../../api/model/auth-info';
 import { createAction, props } from '@ngrx/store';
+import { AuthState } from './auth-state';
 
 export const tryLogin = createAction(
     '[Auth] Try Login',
     props< {email: string, password: string}>()
-    )
+);
+export const sucessfullLogin = createAction(
+    '[Auth] Sucessfull Login',
+    props<AuthState>()
+);
 export const sucessfullAuthentication = createAction(
     '[Auth] Sucessfull Authentication',
     props<AuthState>()

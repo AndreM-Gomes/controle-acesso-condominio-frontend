@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav 
+      #drawer 
+      opened 
+      class="sidenav" 
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="'side'">
+    <mat-toolbar>
+      <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggle()"
+      *ngIf="!(isHandset$ | async)">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+      Menu
+    </mat-toolbar>
+  
+        <mat-expansion-panel 
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        class="mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-panel-title fxLayout="row" fxLayoutAlign="center">
+              <div><mat-icon class="icon">admin_panel_settings</mat-icon></div> 
+                <div>Administração</div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-button class="menu-items"><mat-icon class="icon">account_circle</mat-icon>Usuários</a>
+            <a mat-button class="menu-items"><mat-icon class="icon">location_city</mat-icon>Apartamentos</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+        <div fxLayout="column" fxLayoutAlign="center start">
+          <a mat-button class="menu-items"> <mat-icon class="icon">search</mat-icon>Consulta</a>
+          <a mat-button class="menu-items"> <mat-icon class="icon">home_work</mat-icon>Meu apartamento</a>
+        </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggle()"
+        *ngIf="!toggled">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="logo"><mat-icon>apartment</mat-icon></div>
+        <div>CONTROLE DE ACESSO</div>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

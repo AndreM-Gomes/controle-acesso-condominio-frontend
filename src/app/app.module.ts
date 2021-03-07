@@ -1,4 +1,4 @@
-import { LoginEffects } from './state/login.effect';
+import { LoginEffects } from './state/login/login.effect';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,11 +10,18 @@ import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { reducer as loginReducer } from './state/login.reducer';
+import { reducer as loginReducer } from './state/login/login.reducer';
+import { MenuComponent } from './pages/menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +30,15 @@ import { reducer as loginReducer } from './state/login.reducer';
     StoreModule.forRoot({authInfo:loginReducer}),
     EntityDataModule.forRoot(entityConfig),
     EffectsModule.forRoot([LoginEffects]),
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

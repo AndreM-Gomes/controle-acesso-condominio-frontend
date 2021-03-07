@@ -1,4 +1,3 @@
-import { AuthInfo } from './../api/model/auth-info';
 export class AuthState {
     constructor(
         public isAuthenticated: boolean,
