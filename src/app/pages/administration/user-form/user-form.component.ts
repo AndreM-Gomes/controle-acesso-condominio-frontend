@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { GenericValidators } from 'src/app/shared/generic-validators';
 import { createUser } from 'src/app/state/user/user.actions';
@@ -15,8 +16,8 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store
-    
+    private store: Store,
+    public dialogRef: MatDialogRef<UserFormComponent>
   ) {
     this.userForm = this.fb.group({
       name: ['',Validators.required],
@@ -32,7 +33,7 @@ export class UserFormComponent implements OnInit {
 
   saveUser(){
     this.store.dispatch(createUser(this.userForm.value));
-    this.userForm.reset();
+    this.dialogRef.close();
   }
 
 }

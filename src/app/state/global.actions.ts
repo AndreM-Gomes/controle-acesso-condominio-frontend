@@ -1,5 +1,6 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 export const serverError = createAction(
-    '[Error] Server error'
+    '[Error] Server error',
+    props<{message: string}>()
 );

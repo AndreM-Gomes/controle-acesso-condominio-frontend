@@ -1,3 +1,5 @@
+import { AuthInterceptor } from './api/auth.interceptor';
+import { UserEffects } from './state/user/user.effect';
 import { LoginEffects } from './state/login/login.effect';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,7 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { reducer as loginReducer } from './state/login/login.reducer';
 import { MenuComponent } from './pages/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -18,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { userReducer } from "../app/state/user/user.reducer";
 
 @NgModule({
   declarations: [
@@ -27,9 +30,9 @@ import { MatListModule } from '@angular/material/list';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({authInfo:loginReducer}),
+    StoreModule.forRoot({authInfo:loginReducer,user: userReducer}),
     EntityDataModule.forRoot(entityConfig),
-    EffectsModule.forRoot([LoginEffects]),
+    EffectsModule.forRoot([LoginEffects,UserEffects]),
     HttpClientModule,
     LayoutModule,
     MatToolbarModule,
@@ -39,7 +42,9 @@ import { MatListModule } from '@angular/material/list';
     MatListModule,
   ],
 
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

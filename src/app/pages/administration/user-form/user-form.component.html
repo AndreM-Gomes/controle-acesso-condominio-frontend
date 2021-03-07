@@ -1,41 +1,63 @@
 <form
+    class="full"
     fxLayout="column"
     fxLayoutAlign="center start"
     [formGroup]="userForm"
     (ngSubmit)="saveUser()">
-    <mat-form-field class="full">
-        <mat-label>Nome*</mat-label>
-        <input matInput placeholder="André Monteiro" formControlName="name">
-    </mat-form-field>
-    <mat-form-field class="full">
-        <mat-label>CPF*</mat-label>
-        <input 
-            matInput 
-            placeholder="494.845.654-27" 
-            mask="CPF_CNPJ" 
-            formControlName="cpf">
-    </mat-form-field>
-    <mat-form-field class="full">
-        <mat-label>Telefone*</mat-label>
-        <input 
-            matInput 
-            placeholder="(11) 97650-9163" 
-            mask="(00) 0000-0000||(00) 00000-0000"
-            formControlName="phone">
-    </mat-form-field>
-    <mat-form-field class="full">
-        <mat-label>E-mail*</mat-label>
-        <input 
-            matInput
-            placeholder="Ex. andrem.gomes@outlook.com"
-            formControlName="email">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Perfil</mat-label>
-        <mat-select formControlName="role">
-            <mat-option value="ADMIN">Morador</mat-option>
-            <mat-option value="DOORMAN">Administrador</mat-option>
-            <mat-option value="RESIDENT">Porteiro</mat-option>
-        </mat-select>
-    </mat-form-field>
+    <div
+        class="full" 
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="49">
+            <mat-label>Nome*</mat-label>
+            <input matInput placeholder="André Monteiro" formControlName="name">
+        </mat-form-field>
+        <mat-form-field fxFlex="49">
+            <mat-label>E-mail*</mat-label>
+            <input 
+                matInput
+                placeholder="Ex. andrem.gomes@outlook.com"
+                formControlName="email">
+        </mat-form-field>
+    </div>
+    <div 
+        class="full"
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="space-between end">
+        <mat-form-field fxFlex="32">
+            <mat-label>CPF*</mat-label>
+            <input 
+                matInput 
+                placeholder="494.845.654-27" 
+                mask="CPF_CNPJ" 
+                formControlName="cpf">
+        </mat-form-field>
+        <mat-form-field fxFlex="32">
+            <mat-label>Telefone*</mat-label>
+            <input 
+                matInput 
+                placeholder="(11) 97650-9163" 
+                mask="(00) 0000-0000||(00) 00000-0000"
+                formControlName="phone">
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="32">
+            <mat-label>Perfil</mat-label>
+            <mat-select formControlName="role">
+                <mat-option value="ADMIN">Morador</mat-option>
+                <mat-option value="DOORMAN">Administrador</mat-option>
+                <mat-option value="RESIDENT">Porteiro</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div 
+        class="full"
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="end"
+        fxLayoutGap="10px">
+        <button fxFlex="15" color="warn" mat-raised-button>Cancelar</button>
+        <button fxFlex="15" color="primary" [disabled]="!userForm.valid" mat-stroked-button>Salvar</button>
+    </div>
 </form>

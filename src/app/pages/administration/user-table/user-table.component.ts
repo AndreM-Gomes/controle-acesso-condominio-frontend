@@ -1,4 +1,10 @@
+import { selectAllUsers } from './../../../state/user/user.selector';
+import { loadUsers } from './../../../state/user/user.actions';
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Store } from '@ngrx/store';
+import { User } from 'src/app/api/model/user';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-user-table',
@@ -7,9 +13,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTableComponent implements OnInit {
 
-  constructor() { }
+  dataSource = new MatTableDataSource<User>();
+  displayedColumns = ['name','cpf','phone','actions']
+
+  constructor(
+    private store: Store<AppState>
+  ) { 
+    
+  }
 
   ngOnInit(): void {
+    this.store.dispatch(loadUsers());
+    this.store.select(selectAllUsers).subscribe(value => {
+      this.dataSource.data = value;
+    })
   }
 
 }

@@ -1,9 +1,13 @@
 import { createAction, props } from '@ngrx/store';
-import { create } from 'domain';
 import { User } from 'src/app/api/model/user';
 
 export const loadUsers = createAction(
     '[User] Load Users'
+);
+
+export const usersLoaded = createAction(
+    '[User] Users Loaded',
+    props<{users: User[]}>()
 );
 
 export const createUser = createAction(

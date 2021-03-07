@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../pages/menu/menu.component';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MatSelectModule } from "@angular/material/select";
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { MatSelectModule } from "@angular/material/select";
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }
