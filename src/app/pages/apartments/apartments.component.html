@@ -1,0 +1,21 @@
+<app-menu>
+    <div 
+        class="full page-padding"
+        fxLayout="column"
+        fxFlex="100"
+        fxLayoutAlign="start start">
+        <h1 class="full">Administração - Apartamentos</h1>
+        <div
+            class="full"
+            fxLayout="row" 
+            fxLayoutAlign="space-between">
+            <div>
+                <h2>Apartamentos Cadastrados</h2>
+            </div>
+            <div>
+                <button mat-mini-fab color="primary" (click)="openDialog()"><mat-icon>add</mat-icon></button>
+            </div>
+        </div>
+        <app-apartment-table class="full"></app-apartment-table>
+    </div>
+</app-menu>

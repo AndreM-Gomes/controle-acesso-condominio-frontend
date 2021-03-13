@@ -13,6 +13,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
+import { NgxMaskModule } from 'ngx-mask';
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MatTableModule } from "@angular/material/table";
     MatExpansionModule,
     MatSelectModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [
     CommonModule,
@@ -47,7 +51,9 @@ import { MatTableModule } from "@angular/material/table";
     MatExpansionModule,
     MatSelectModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule,
+    NgxMaskModule,
   ]
 })
 export class SharedModule { }

@@ -2,8 +2,7 @@
     class="full"
     fxLayout="column"
     fxLayoutAlign="center start"
-    [formGroup]="userForm"
-    (ngSubmit)="saveUser()">
+    [formGroup]="userForm">
     <div
         class="full" 
         fxLayout="row" 
@@ -45,9 +44,9 @@
         <mat-form-field appearance="fill" fxFlex="32">
             <mat-label>Perfil</mat-label>
             <mat-select formControlName="role">
-                <mat-option value="ADMIN">Morador</mat-option>
-                <mat-option value="DOORMAN">Administrador</mat-option>
-                <mat-option value="RESIDENT">Porteiro</mat-option>
+                <mat-option value="ADMIN">Administrador</mat-option>
+                <mat-option value="DOORMAN">Porteiro</mat-option>
+                <mat-option value="RESIDENT">Morador</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -57,7 +56,7 @@
         fxFlex="100" 
         fxLayoutAlign="end"
         fxLayoutGap="10px">
-        <button fxFlex="15" color="warn" mat-raised-button>Cancelar</button>
-        <button fxFlex="15" color="primary" [disabled]="!userForm.valid" mat-stroked-button>Salvar</button>
+        <button fxFlex="15" color="warn" mat-dialog-close mat-raised-button>Cancelar</button>
+        <button fxFlex="15" color="primary" [disabled]="!userForm.valid" (click)="saveUser()" mat-stroked-button>Salvar</button>
     </div>
 </form>

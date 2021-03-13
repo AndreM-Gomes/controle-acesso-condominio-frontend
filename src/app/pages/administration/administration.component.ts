@@ -19,7 +19,8 @@ export class AdministrationComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(UserFormComponent, {
-      width: '600px'
+      width: '600px',
+      disableClose: true
     })
   }
 

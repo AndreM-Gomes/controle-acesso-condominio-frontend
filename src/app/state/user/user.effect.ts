@@ -6,7 +6,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { createUser, loadUsers, usersLoaded, userCreated, updateUser, userUpdated, deleteUser, userDeleted } from './user.actions';
-import { exhaustMap, map, catchError, tap } from 'rxjs/operators';
+import { exhaustMap, map, catchError, tap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -20,7 +20,7 @@ export class UserEffects{
             map(users => usersLoaded({users})),
             catchError( (error:HttpErrorResponse) =>of(serverError({message: error.message})))
         ))
-    ))
+    ));
 
     createUser$ = createEffect(
         () => this.actions$.pipe(
@@ -45,15 +45,20 @@ export class UserEffects{
     deleteUser$ = createEffect(
         () => this.actions$.pipe(
             ofType(deleteUser),
-            exhaustMap(value => this.userService.deleteUser(value.id).pipe(
-                map(() => userDeleted({id: value.id})),
-                catchError((error: HttpErrorResponse) => of(serverError({message: error.message})))
-            ))
+            tap(console.log),
+            exhaustMap(value => {
+                console.log('Dentro do  ');
+                return this.userService.deleteUser(value.id).pipe(
+                    map(() => userDeleted({id: value.id})),
+                    catchError((error: HttpErrorResponse) => of(serverError({message: error.message})))
+                )
+            })
         )
     )
 
     constructor(
         private userService: UserService,
         private actions$: Actions,
+        private store: Store
     ){}
 }

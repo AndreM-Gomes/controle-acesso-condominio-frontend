@@ -1,0 +1,54 @@
+<div
+    class="full"
+    fxLayout="column"
+    fxLayoutAlign="center start">
+    <div
+        class="full" 
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="39">
+            <mat-label>Apartamento*</mat-label>
+            <input matInput [formControl]="apartmentNumberControl">
+        </mat-form-field>
+        <mat-form-field fxFlex="49">
+            <mat-label>Morador</mat-label>
+            <input type="text" matInput [formControl]="resident" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let user of filteredOptions$|async" [value]="user">
+                    {{user.name}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <button mat-mini-fab color="primary" (click)="addToResident()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div
+        class="full" 
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="space-between">
+        <div
+            class="full"
+            fxFlex="100"
+            fxLayout="column"
+            fxLayoutAlign="center start">
+            <h3>Moradores</h3>
+            <app-residents-table 
+                class="full" 
+                fxFlex="100" 
+                (delete)="removeResident($event)" 
+                [users$]="usersSubject.asObservable()">
+            </app-residents-table>
+        </div>
+    </div>
+    <div 
+        class="full"
+        fxLayout="row" 
+        fxFlex="100" 
+        fxLayoutAlign="end"
+        fxLayoutGap="10px"
+        style="margin-top: 10px;">
+        <button fxFlex="15" color="warn" mat-dialog-close mat-raised-button>Cancelar</button>
+        <button fxFlex="15" color="primary" mat-dialog-close (click)="save()" mat-stroked-button>Salvar</button>
+    </div>
+</div>

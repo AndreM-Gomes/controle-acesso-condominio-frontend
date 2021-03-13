@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { User } from './model/user';
 import { USER_URL } from './paths';
 
@@ -12,18 +13,19 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get<User[]>(`${USER_URL}`);
+    return this.http.get<User[]>(`${USER_URL}`).pipe(take(1));
   }
 
   createUser(user: User): Observable<{id: number}>{
-    return this.http.post<{id: number}>(`${USER_URL}`,user);
+    return this.http.post<{id: number}>(`${USER_URL}`,user).pipe(take(1));
   }
 
   updateUser(user: User,id: number){
-    return this.http.put(`${USER_URL}/${id}`,user);
+    return this.http.put(`${USER_URL}/${id}`,user).pipe(take(1));
   }
 
   deleteUser(id: number){
-    return this.http.delete(`${USER_URL}/${id}`);
+    console.log('deleteUser(id: number)',id)
+    return this.http.delete(`${USER_URL}/${id}`).pipe(take(1));
   }
 }
