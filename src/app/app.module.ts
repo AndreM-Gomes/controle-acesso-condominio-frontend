@@ -24,6 +24,7 @@ import { userReducer } from "../app/state/user/user.reducer";
 import { FirstAccessEffects } from './state/first-access/first-access.effect';
 import { ApartmentEffects } from './state/apartment/apartment.effects';
 import { apartmentReducer } from './state/apartment/apartment.reducer';
+import { cpfReducer } from './state/user/found-by-cpf.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { apartmentReducer } from './state/apartment/apartment.reducer';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({authInfo:loginReducer,user: userReducer, apartment: apartmentReducer}),
+    StoreModule.forRoot({
+      authInfo:loginReducer,
+      user: userReducer,
+      apartment: apartmentReducer,
+      usersFoundByCpf: cpfReducer
+    }),
     EntityDataModule.forRoot(entityConfig),
     EffectsModule.forRoot([
       LoginEffects,

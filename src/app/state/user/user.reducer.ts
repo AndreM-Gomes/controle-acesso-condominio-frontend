@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { User } from 'src/app/api/model/user';
-import { createUser, userCreated, userDeleted, userUpdated, usersLoaded } from './user.actions';
+import { createUser, userCreated, userDeleted, userUpdated, usersLoaded, foundedByCPF } from './user.actions';
 
 export const initialState: Map<number,User> = new Map<number,User>();
 

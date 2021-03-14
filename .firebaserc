@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "acceso-condominio": {
+      "hosting": {
+        "sistema-condominio": [
+          "acceso-condominio"
+        ]
+      }
+    }
+  }
+}

@@ -6,5 +6,6 @@ import { Apartment } from '../api/model/apartment';
 export interface AppState {
     authInfo: AuthState;
     user: Map<number,User>;
-    apartment: Map<number,Apartment>
+    apartment: Map<number,Apartment>;
+    usersFoundByCpf: User[]
 }

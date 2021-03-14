@@ -1,0 +1,25 @@
+<app-menu>
+    <div 
+        class="full page-padding"
+        fxLayout="column"
+        fxFlex="100"
+        fxLayoutAlign="start start">
+        <h1 class="full">Consulta</h1>
+        <div
+            class="full"
+            fxLayout="row" 
+            fxLayoutAlign="space-between">
+            <div>
+                <h2>Consulta de moradores cadastrados</h2>
+            </div>
+        </div>
+        <div fxLayout="row" class="full">
+            <mat-form-field fxFlex="25" class="full">
+                <mat-label>CPF</mat-label>
+                <input class="full" matInput mask="CPF_CNPJ" placeholder="494.454.545-57" [formControl]="cpfControl">
+            </mat-form-field>
+        </div>
+        <app-users-table class="full"></app-users-table>
+        
+    </div>
+</app-menu>

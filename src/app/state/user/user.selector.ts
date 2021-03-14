@@ -1,6 +1,7 @@
 import { AppState } from './../app.state';
 import { createSelector } from '@ngrx/store';
 import { User } from 'src/app/api/model/user';
+import { state } from '@angular/animations';
 
 export const selectAllUsers = createSelector(
   (state: AppState) => state.user,
@@ -25,3 +26,8 @@ export const selectUsersByName = createSelector(
     return usersSelected;
   }
 );
+
+export const selectUsersFoundByCpf = createSelector(
+  (state: AppState) => state.usersFoundByCpf,
+  state => state
+)

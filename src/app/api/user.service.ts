@@ -9,11 +9,15 @@ import { USER_URL } from './paths';
   providedIn: 'root'
 })
 export class UserService {
-
+  
   constructor(private http: HttpClient) { }
 
   getUsers(){
     return this.http.get<User[]>(`${USER_URL}`).pipe(take(1));
+  }
+
+  findByCPF(cpf: string) {
+    return this.http.get<User[]>(`${USER_URL}/residents?cpf=${cpf}`).pipe(take(1));
   }
 
   createUser(user: User): Observable<{id: number}>{

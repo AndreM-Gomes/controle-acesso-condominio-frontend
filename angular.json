@@ -126,6 +126,10 @@
               "devServerTarget": "sistema-condominio:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

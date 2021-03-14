@@ -5,7 +5,7 @@ import { UserService } from './../../api/user.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { createUser, loadUsers, usersLoaded, userCreated, updateUser, userUpdated, deleteUser, userDeleted } from './user.actions';
+import { createUser, loadUsers, usersLoaded, userCreated, updateUser, userUpdated, deleteUser, userDeleted, searchByCpf, foundedByCPF } from './user.actions';
 import { exhaustMap, map, catchError, tap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -20,6 +20,15 @@ export class UserEffects{
             map(users => usersLoaded({users})),
             catchError( (error:HttpErrorResponse) =>of(serverError({message: error.message})))
         ))
+    ));
+
+    searchUsers$ = createEffect(() => this.actions$.pipe(
+        ofType(searchByCpf),
+        exhaustMap( props => this.userService.findByCPF(props.cpf).pipe(
+            tap(value => console.log('Founded users with CPF similar =>',value)),
+            map(users => foundedByCPF({users})),
+            catchError( (error: HttpErrorResponse) => of(serverError({message: error.message})))
+        ) )
     ));
 
     createUser$ = createEffect(

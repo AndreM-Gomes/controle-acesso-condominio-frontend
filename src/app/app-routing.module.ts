@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
   { path: 'administracao', loadChildren: () => import('./pages/administration/administration.module').then(m => m.AdministrationModule), canActivate: [AuthGuard]},
   { path: 'primeiro-acesso', loadChildren: () => import('./pages/first-access/first-access.module').then(m => m.FirstAccessModule) },
-  { path: 'apartamentos', loadChildren: () => import('./pages/apartments/apartments.module').then(m => m.ApartmentsModule) }
+  { path: 'apartamentos', loadChildren: () => import('./pages/apartments/apartments.module').then(m => m.ApartmentsModule) },
+  { path: 'consulta', loadChildren: () => import('./pages/query/query.module').then(m => m.QueryModule) }
 ];
 
 @NgModule({

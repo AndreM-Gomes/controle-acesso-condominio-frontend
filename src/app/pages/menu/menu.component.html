@@ -51,8 +51,8 @@
           </mat-nav-list>
         </mat-expansion-panel>
         <div fxLayout="column" fxLayoutAlign="center start">
-          <a mat-button class="menu-items"> <mat-icon class="icon">search</mat-icon>Consulta</a>
-          <a mat-button class="menu-items"> <mat-icon class="icon">home_work</mat-icon>Meu apartamento</a>
+          <a mat-button class="menu-items" (click)="goTo('/consulta')"><mat-icon class="icon">search</mat-icon>Consulta</a>
+          <!-- <a mat-button class="menu-items"> <mat-icon class="icon">home_work</mat-icon>Meu apartamento</a> -->
         </div>
   </mat-sidenav>
   <mat-sidenav-content fxFlex="100" fxLayout="column">

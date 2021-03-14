@@ -47,3 +47,13 @@ export const emailAlreadyExists = createAction(
 export const cpfAlreadyExists = createAction(
     '[User] CPF already exists'
 );
+
+export const searchByCpf = createAction(
+    '[User] Search by CPF',
+    props<{cpf: string}>()
+)
+
+export const foundedByCPF = createAction(
+    '[User] Founded by CPF',
+    props<{users: User[]}>()
+)
